@@ -72,7 +72,7 @@ export default function Home() {
     <>
       {/* ══════════════════════════════════════════ HERO */}
       <section
-        className="px-4 md:px-8 lg:px-[48px] pt-20 md:pt-[120px] pb-16 md:pb-[100px]"
+        className="px-4 md:px-8 lg:px-[48px] pt-28 md:pt-[120px] pb-16 md:pb-[100px]"
         style={{ backgroundColor: "#0C447C", position: "relative", overflow: "hidden" }}
       >
         {/* Diagonal lines overlay */}
@@ -147,7 +147,7 @@ export default function Home() {
           </div>
 
           {/* Right — stats */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 1 }} className="mt-10 md:mt-0">
+          <div style={{ display: "flex", flexDirection: "column", gap: 1 }} className="mt-6 md:mt-0">
             {[
               { num: "31+", label: "ГОДИНИ ЗАЩИТА НА РАБОТНИЦИТЕ" },
               { num: "4", label: "РЕГИОНА В БЪЛГАРИЯ — СОФИЯ, ПЛОВДИВ, ВАРНА, ПЛЕВЕН" },

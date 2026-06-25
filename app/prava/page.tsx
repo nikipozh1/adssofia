@@ -78,8 +78,8 @@ export default function Prava() {
 
       {/* ══ ВЪВЕЖДАЩА СЕКЦИЯ ════════════════════════════════ */}
       <section
-        style={{ backgroundColor: "#F7F5F0", padding: "80px 48px" }}
-        className="px-6 md:px-[48px]"
+        style={{ backgroundColor: "#F7F5F0" }}
+        className="px-4 md:px-8 lg:px-[48px] py-16 md:py-[80px]"
       >
         <div
           style={{ maxWidth: 1200, margin: "0 auto" }}
@@ -157,8 +157,8 @@ export default function Prava() {
 
       {/* ══ 6 ПРАВА ════════════════════════════════════════ */}
       <section
-        style={{ backgroundColor: "#F7F5F0", padding: "0 48px 100px" }}
-        className="px-6 md:px-[48px]"
+        style={{ backgroundColor: "#F7F5F0" }}
+        className="px-4 md:px-8 lg:px-[48px] pb-16 md:pb-[100px]"
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span style={eyebrow("#185FA5")}>Основни права</span>
@@ -230,8 +230,8 @@ export default function Prava() {
 
       {/* ══ КАТЕГОРИИ ══════════════════════════════════════ */}
       <section
-        style={{ backgroundColor: "#1A1A18", padding: "100px 48px" }}
-        className="px-6 md:px-[48px]"
+        style={{ backgroundColor: "#1A1A18" }}
+        className="px-4 md:px-8 lg:px-[48px] py-16 md:py-[100px]"
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span style={eyebrow("#B5D4F4")}>Разгледай по тема</span>
@@ -319,8 +319,8 @@ export default function Prava() {
 
       {/* ══ ИМАШ ВЪПРОС? ═══════════════════════════════════ */}
       <section
-        style={{ backgroundColor: "#E6F1FB", padding: "80px 48px" }}
-        className="px-6 md:px-[48px]"
+        style={{ backgroundColor: "#E6F1FB" }}
+        className="px-4 md:px-8 lg:px-[48px] py-16 md:py-[80px]"
       >
         <div
           style={{ maxWidth: 1200, margin: "0 auto" }}

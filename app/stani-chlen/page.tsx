@@ -101,8 +101,8 @@ export default function StaniChlen() {
 
       {/* ══ ЗАЩО ДА СТАНЕШ ЧЛЕН ══════════════════════════════ */}
       <section
-        style={{ backgroundColor: "#F7F5F0", padding: "100px 48px" }}
-        className="px-6 md:px-[48px]"
+        style={{ backgroundColor: "#F7F5F0" }}
+        className="px-4 md:px-8 lg:px-[48px] py-12 md:py-[100px]"
       >
         <div
           style={{ maxWidth: 1200, margin: "0 auto" }}

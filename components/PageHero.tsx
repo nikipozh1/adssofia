@@ -7,7 +7,7 @@ interface PageHeroProps {
 export default function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
   return (
     <section
-      className="px-4 md:px-8 lg:px-[48px] pt-28 md:pt-[120px] pb-20 md:pb-[100px] min-h-[360px] md:min-h-[320px]"
+      className={`px-4 md:px-8 lg:px-[48px] pt-28 md:pt-[120px] ${subtitle ? "pb-12 md:pb-[100px]" : "pb-8 md:pb-[80px]"}`}
       style={{
         background: "#0C447C",
         display: "flex",

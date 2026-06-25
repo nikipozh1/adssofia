@@ -103,15 +103,16 @@ export default function Home() {
               Ти не си сам.
             </h1>
 
-            <p style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontWeight: 300,
-              fontSize: "clamp(16px, 2vw, 20px)",
-              lineHeight: 1.6,
-              color: "rgba(255,255,255,0.65)",
-              marginBottom: 48,
-              maxWidth: 480,
-            }}>
+            <p
+              className="mb-8 md:mb-[48px]"
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontWeight: 300,
+                fontSize: "clamp(16px, 2vw, 20px)",
+                lineHeight: 1.6,
+                color: "rgba(255,255,255,0.65)",
+                maxWidth: 480,
+              }}>
               Защитаваме правата на работниците в здравеопазването, образованието и промишлеността.
             </p>
 
@@ -147,7 +148,7 @@ export default function Home() {
           </div>
 
           {/* Right — stats */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 1 }} className="mt-6 md:mt-0">
+          <div style={{ display: "flex", flexDirection: "column", gap: 1 }} className="mt-4 md:mt-0">
             {[
               { num: "31+", label: "ГОДИНИ ЗАЩИТА НА РАБОТНИЦИТЕ" },
               { num: "4", label: "РЕГИОНА В БЪЛГАРИЯ — СОФИЯ, ПЛОВДИВ, ВАРНА, ПЛЕВЕН" },

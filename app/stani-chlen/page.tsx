@@ -94,8 +94,8 @@ export default function StaniChlen() {
     <>
       {/* ══ HERO ══════════════════════════════════════════════ */}
       <section
-        style={{ backgroundColor: "#0C447C", padding: "80px 48px" }}
-        className="px-6 md:px-[48px] pt-[100px]"
+        style={{ backgroundColor: "#0C447C", padding: "120px 48px 100px" }}
+        className="px-6 md:px-[48px]"
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span style={eyebrow("#B5D4F4")}>Членство</span>

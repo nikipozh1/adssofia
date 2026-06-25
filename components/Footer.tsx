@@ -41,16 +41,20 @@ export default function Footer() {
           <div>
             <div style={{
               backgroundColor: "white",
-              display: "inline-block",
+              borderRadius: "50%",
               padding: 8,
-              borderRadius: 4,
+              display: "inline-flex",
+              width: 72,
+              height: 72,
+              alignItems: "center",
+              justifyContent: "center",
             }}>
               <Image
                 src="/ads_logo.jpg"
                 alt="АДС София"
-                width={120}
-                height={52}
-                style={{ height: 52, width: "auto", display: "block" }}
+                width={56}
+                height={56}
+                style={{ borderRadius: "50%" }}
               />
             </div>
             <p style={{

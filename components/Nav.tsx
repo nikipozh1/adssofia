@@ -21,7 +21,7 @@ export default function Nav() {
       position: "fixed",
       top: 0, left: 0, right: 0,
       zIndex: 50,
-      height: 72,
+      height: 84,
     }}>
       <div style={{
         maxWidth: 1200,
@@ -38,9 +38,9 @@ export default function Nav() {
           <Image
             src="/ads_logo.jpg"
             alt="АДС София"
-            width={120}
-            height={52}
-            style={{ height: 52, width: "auto", mixBlendMode: "multiply" }}
+            width={148}
+            height={64}
+            style={{ height: 64, width: "auto", mixBlendMode: "multiply", filter: "contrast(1.2)" }}
             priority
           />
         </Link>

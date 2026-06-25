@@ -3,16 +3,40 @@
 import { useState } from "react";
 
 export default function ContactForm() {
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSending(true);
-    setTimeout(() => { setSending(false); setSent(true); }, 700);
+    setLoading(true);
+    setError(false);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
-  if (sent) {
+  if (submitted) {
     return (
       <div style={{
         padding: "48px 32px",
@@ -20,11 +44,21 @@ export default function ContactForm() {
         borderRadius: 4,
         textAlign: "center",
       }}>
-        <p style={{ fontFamily: "var(--font-playfair)", fontSize: 22, color: "#0C447C", marginBottom: 12 }}>
-          Получихме съобщението ти.
+        <p style={{
+          fontFamily: "var(--font-playfair)",
+          fontSize: 22,
+          color: "#0C447C",
+          marginBottom: 12,
+        }}>
+          Съобщението е изпратено!
         </p>
-        <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 300, fontSize: 14, color: "#5a5650" }}>
-          Ще се свържем с теб в рамките на 1 работен ден.
+        <p style={{
+          fontFamily: "var(--font-dm-sans)",
+          fontWeight: 300,
+          fontSize: 14,
+          color: "#5a5650",
+        }}>
+          Ще се свържем с теб скоро.
         </p>
       </div>
     );
@@ -41,7 +75,7 @@ export default function ContactForm() {
     marginBottom: 4,
   };
 
-  const input: React.CSSProperties = {
+  const inputBase: React.CSSProperties = {
     display: "block",
     width: "100%",
     border: 0,
@@ -65,55 +99,95 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-      {[
-        { id: "name", label: "Вашето име", type: "text", required: true, placeholder: "Иван Петров" },
-        { id: "email", label: "Имейл", type: "email", required: true, placeholder: "ivan@example.com" },
-        { id: "phone", label: "Телефон (незадължително)", type: "tel", required: false, placeholder: "+359 8XX XXX XXX" },
-      ].map((f) => (
-        <div key={f.id}>
-          <label htmlFor={f.id} style={fieldLabel}>{f.label}</label>
-          <input
-            id={f.id} name={f.id} type={f.type}
-            required={f.required} placeholder={f.placeholder}
-            style={input} onFocus={handleFocus} onBlur={handleBlur}
-          />
-        </div>
-      ))}
+      <div>
+        <label htmlFor="name" style={fieldLabel}>Вашето име</label>
+        <input
+          id="name" type="text" required
+          placeholder="Иван Петров"
+          value={name} onChange={(e) => setName(e.target.value)}
+          style={inputBase} onFocus={handleFocus} onBlur={handleBlur}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="email" style={fieldLabel}>Имейл</label>
+        <input
+          id="email" type="email" required
+          placeholder="ivan@example.com"
+          value={email} onChange={(e) => setEmail(e.target.value)}
+          style={inputBase} onFocus={handleFocus} onBlur={handleBlur}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="phone" style={fieldLabel}>Телефон (незадължително)</label>
+        <input
+          id="phone" type="tel"
+          placeholder="+359 8XX XXX XXX"
+          value={phone} onChange={(e) => setPhone(e.target.value)}
+          style={inputBase} onFocus={handleFocus} onBlur={handleBlur}
+        />
+      </div>
 
       <div>
         <label htmlFor="message" style={fieldLabel}>Съобщение</label>
         <textarea
-          id="message" name="message" required rows={5}
+          id="message" required rows={5}
           placeholder="Опиши накратко с какво можем да помогнем..."
-          style={{ ...input, resize: "none" }}
+          value={message} onChange={(e) => setMessage(e.target.value)}
+          style={{ ...inputBase, resize: "none" }}
           onFocus={handleFocus} onBlur={handleBlur}
         />
       </div>
 
-      <button type="submit" disabled={sending} style={{
-        fontFamily: "var(--font-dm-sans)",
-        fontWeight: 500,
-        fontSize: 13,
-        letterSpacing: "0.08em",
-        textTransform: "uppercase",
-        backgroundColor: sending ? "#185FA5" : "#0C447C",
-        color: "white",
-        padding: 16,
-        borderRadius: 2,
-        border: "none",
-        cursor: sending ? "default" : "pointer",
-        width: "100%",
-        transition: "background-color 200ms",
-      }}
-        onMouseEnter={(e) => { if (!sending) e.currentTarget.style.backgroundColor = "#185FA5"; }}
-        onMouseLeave={(e) => { if (!sending) e.currentTarget.style.backgroundColor = "#0C447C"; }}
+      {error && (
+        <p style={{
+          fontFamily: "var(--font-dm-sans)",
+          fontSize: 13,
+          color: "#c0392b",
+          padding: "12px 16px",
+          backgroundColor: "#fdf2f2",
+          borderRadius: 2,
+          margin: 0,
+        }}>
+          Възникна грешка. Моля обади се на +359 877 309 794.
+        </p>
+      )}
+
+      <button
+        type="submit"
+        disabled={loading}
+        style={{
+          fontFamily: "var(--font-dm-sans)",
+          fontWeight: 500,
+          fontSize: 13,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          backgroundColor: loading ? "#185FA5" : "#0C447C",
+          color: "white",
+          padding: 16,
+          borderRadius: 2,
+          border: "none",
+          cursor: loading ? "default" : "pointer",
+          width: "100%",
+          transition: "background-color 200ms",
+        }}
+        onMouseEnter={(e) => { if (!loading) e.currentTarget.style.backgroundColor = "#185FA5"; }}
+        onMouseLeave={(e) => { if (!loading) e.currentTarget.style.backgroundColor = "#0C447C"; }}
       >
-        {sending ? "Изпраща се..." : "Изпрати"}
+        {loading ? "Изпраща се..." : "Изпрати"}
       </button>
 
-      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "#9a9590", textAlign: "center" }}>
+      <p style={{
+        fontFamily: "var(--font-dm-sans)",
+        fontSize: 11,
+        color: "#9a9590",
+        textAlign: "center",
+      }}>
         Данните се обработват съгласно нашата{" "}
-        <a href="/gdpr" style={{ color: "#0C447C", textDecoration: "underline" }}>политика за поверителност</a>.
+        <a href="/gdpr" style={{ color: "#0C447C", textDecoration: "underline" }}>
+          политика за поверителност
+        </a>.
       </p>
     </form>
   );

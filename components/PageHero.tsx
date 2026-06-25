@@ -6,13 +6,15 @@ interface PageHeroProps {
 
 export default function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
   return (
-    <section style={{
-      background: "#0C447C",
-      padding: "120px 48px 100px",
-      minHeight: "320px",
-      display: "flex",
-      alignItems: "flex-end",
-    }}>
+    <section
+      className="px-4 md:px-8 lg:px-[48px] pt-20 md:pt-[120px] pb-16 md:pb-[100px]"
+      style={{
+        background: "#0C447C",
+        minHeight: "320px",
+        display: "flex",
+        alignItems: "flex-end",
+      }}
+    >
       <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
         <p style={{
           fontSize: "11px",
@@ -27,7 +29,7 @@ export default function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
         </p>
         <h1 style={{
           fontFamily: "Playfair Display, serif",
-          fontSize: "52px",
+          fontSize: "clamp(32px, 5vw, 52px)",
           fontWeight: 700,
           color: "white",
           lineHeight: 1.1,

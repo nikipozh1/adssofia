@@ -72,8 +72,8 @@ export default function Home() {
     <>
       {/* ══════════════════════════════════════════ HERO */}
       <section
-        style={{ backgroundColor: "#0C447C", padding: "120px 48px 100px", position: "relative", overflow: "hidden" }}
-        className="px-6 md:px-[48px]"
+        className="px-4 md:px-8 lg:px-[48px] pt-20 md:pt-[120px] pb-16 md:pb-[100px]"
+        style={{ backgroundColor: "#0C447C", position: "relative", overflow: "hidden" }}
       >
         {/* Diagonal lines overlay */}
         <div aria-hidden="true" style={{
@@ -160,7 +160,7 @@ export default function Home() {
                 <p style={{
                   fontFamily: "var(--font-playfair)",
                   fontWeight: 700,
-                  fontSize: 52,
+                  fontSize: "clamp(36px, 5vw, 52px)",
                   color: "white",
                   lineHeight: 1,
                   marginBottom: 8,
@@ -199,13 +199,10 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════ BLUE STRIP */}
-      <div style={{ backgroundColor: "#185FA5", padding: "16px 48px" }} className="px-6 md:px-[48px]">
-        <div style={{
-          maxWidth: 1200, margin: "0 auto",
-          display: "flex", gap: 48, flexWrap: "wrap", alignItems: "center",
-        }}>
+      <div className="px-4 md:px-8 lg:px-[48px]" style={{ backgroundColor: "#185FA5", paddingTop: 16, paddingBottom: 16 }}>
+        <div className="flex flex-wrap gap-4 md:gap-12 items-center" style={{ maxWidth: 1200, margin: "0 auto" }}>
           {sectors.map((s, i) => (
-            <span key={s} style={{ display: "flex", alignItems: "center", gap: 48 }}>
+            <span key={s} style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <span style={{
                 fontFamily: "var(--font-dm-sans)",
                 fontWeight: 500,
@@ -226,7 +223,7 @@ export default function Home() {
       </div>
 
       {/* ══════════════════════════════════════════ UNDERSTAND YOU */}
-      <section style={{ backgroundColor: "#F7F5F0", padding: "100px 48px" }} className="px-6 md:px-[48px]">
+      <section className="px-4 md:px-8 lg:px-[48px] py-16 md:py-[100px]" style={{ backgroundColor: "#F7F5F0" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[80px] items-center">
 
@@ -279,11 +276,7 @@ export default function Home() {
           </div>
 
           {/* Right — pain cards */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 16,
-          }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {painCards.map((card) => (
               <div key={card.title} style={{
                 background: "white",
@@ -317,7 +310,7 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════ TESTIMONIALS */}
-      <section style={{ backgroundColor: "#1A1A18", padding: "100px 48px" }} className="px-6 md:px-[48px]">
+      <section className="px-4 md:px-8 lg:px-[48px] py-16 md:py-[100px]" style={{ backgroundColor: "#1A1A18" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span style={eyebrow("#B5D4F4")}>Гласове на работниците</span>
 
@@ -363,11 +356,10 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════ CTA */}
-      <section style={{
-        backgroundColor: "#0C447C",
-        padding: "100px 48px",
-        textAlign: "center",
-      }} className="px-6 md:px-[48px]">
+      <section
+        className="px-4 md:px-8 lg:px-[48px] py-16 md:py-[100px]"
+        style={{ backgroundColor: "#0C447C", textAlign: "center" }}
+      >
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <h2 style={{
             fontFamily: "var(--font-playfair)",

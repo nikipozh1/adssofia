@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Контакт",
@@ -12,17 +13,6 @@ const contactItems = [
   { label: "Имейл", value: "adssofia@abv.bg", href: "mailto:adssofia@abv.bg" },
   { label: "Работно време", value: "Пон–Пет, 9:00–17:00", href: undefined },
 ];
-
-const eyebrow: React.CSSProperties = {
-  fontFamily: "var(--font-dm-sans)",
-  fontWeight: 500,
-  fontSize: 11,
-  letterSpacing: "0.18em",
-  textTransform: "uppercase",
-  color: "#B5D4F4",
-  display: "block",
-  marginBottom: 16,
-};
 
 const sectionLabel: React.CSSProperties = {
   fontFamily: "var(--font-dm-sans)",
@@ -38,27 +28,10 @@ const sectionLabel: React.CSSProperties = {
 export default function Kontakt() {
   return (
     <>
-      {/* HERO */}
-      <section style={{
-        backgroundColor: "#0C447C",
-        padding: "100px 48px 80px",
-        minHeight: 280,
-        display: "flex",
-        alignItems: "flex-end",
-      }} className="px-6 md:px-[48px] pt-[110px]">
-        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
-          <span style={eyebrow}>Контакт</span>
-          <h1 style={{
-            fontFamily: "var(--font-playfair)",
-            fontWeight: 700,
-            fontSize: "clamp(36px, 5vw, 52px)",
-            lineHeight: 1.05,
-            color: "white",
-          }}>
-            Свържи се с нас
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Контакт"
+        title="Свържи се с нас."
+      />
 
       {/* MAIN */}
       <section style={{ backgroundColor: "#F7F5F0", padding: "100px 48px" }} className="px-6 md:px-[48px]">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
 const benefits = [
   {
@@ -92,38 +93,11 @@ export default function StaniChlen() {
 
   return (
     <>
-      {/* ══ HERO ══════════════════════════════════════════════ */}
-      <section
-        style={{ backgroundColor: "#0C447C", padding: "120px 48px 100px" }}
-        className="px-6 md:px-[48px]"
-      >
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span style={eyebrow("#B5D4F4")}>Членство</span>
-          <h1
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontWeight: 700,
-              fontSize: "clamp(36px, 4.5vw, 52px)",
-              color: "white",
-              lineHeight: 1.05,
-              marginBottom: 16,
-            }}
-          >
-            Стани част от АДС.
-          </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontWeight: 300,
-              fontSize: 20,
-              color: "rgba(255,255,255,0.65)",
-              lineHeight: 1.5,
-            }}
-          >
-            Едно решение. Реална защита.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Членство"
+        title="Стани част от АДС."
+        subtitle="Едно решение. Реална защита."
+      />
 
       {/* ══ ЗАЩО ДА СТАНЕШ ЧЛЕН ══════════════════════════════ */}
       <section

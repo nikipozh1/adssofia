@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "За нас",
@@ -45,28 +46,10 @@ const label: React.CSSProperties = {
 export default function ZaNas() {
   return (
     <>
-      {/* HERO */}
-      <section style={{
-        backgroundColor: "#0C447C",
-        padding: "100px 48px",
-        minHeight: 360,
-        display: "flex",
-        alignItems: "flex-end",
-      }} className="px-6 md:px-[48px] pt-[110px]">
-        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
-          <span style={{ ...label, color: "#B5D4F4" }}>За организацията</span>
-          <h1 style={{
-            fontFamily: "var(--font-playfair)",
-            fontWeight: 700,
-            fontSize: "clamp(32px, 4.5vw, 52px)",
-            lineHeight: 1.1,
-            color: "white",
-            maxWidth: 700,
-          }}>
-            Основани от работници. Управлявани от работници.
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="За организацията"
+        title="Основани от работници. Управлявани от работници."
+      />
 
       {/* HISTORY */}
       <section style={{ backgroundColor: "#F7F5F0", padding: "100px 48px" }} className="px-6 md:px-[48px]">

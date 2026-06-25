@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Знай правата си",
@@ -69,41 +70,11 @@ const eyebrow = (color: string): React.CSSProperties => ({
 export default function Prava() {
   return (
     <>
-      {/* ══ HERO ════════════════════════════════════════════ */}
-      <section
-        style={{ backgroundColor: "#0C447C", padding: "120px 48px 100px" }}
-        className="px-6 md:px-[48px]"
-      >
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span style={eyebrow("#B5D4F4")}>Знай правата си</span>
-          <h1
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontWeight: 700,
-              fontSize: "clamp(36px, 4.5vw, 52px)",
-              color: "white",
-              lineHeight: 1.1,
-              marginBottom: 0,
-            }}
-          >
-            Кодексът на труда е на твоя страна.
-          </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontWeight: 300,
-              fontSize: 20,
-              color: "rgba(255,255,255,0.65)",
-              lineHeight: 1.6,
-              maxWidth: 600,
-              marginTop: 24,
-            }}
-          >
-            Повечето работници не знаят правата си. Ние ги обясняваме на
-            разбираем език — без юридически жаргон.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Знай правата си"
+        title="Кодексът на труда е на твоя страна."
+        subtitle="Повечето работници не знаят правата си. Ние ги обясняваме на разбираем език — без юридически жаргон."
+      />
 
       {/* ══ ВЪВЕЖДАЩА СЕКЦИЯ ════════════════════════════════ */}
       <section
